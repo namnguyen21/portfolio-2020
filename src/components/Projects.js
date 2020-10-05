@@ -21,6 +21,9 @@ const Heading = styled.h2`
   color: ${(props) => props.theme.colors.tan};
   margin-bottom: 4rem;
   letter-spacing: 0.2rem;
+  @media (max-width: 1000px) {
+    font-size: 4rem;
+  }
 `;
 
 export default function Projects() {
@@ -41,9 +44,9 @@ export default function Projects() {
       description:
         "A content aggregation application that uses a Python script to gather articles and posts from various media and news outlets. ",
       tools: ["React", "Styled-Components", "NodeJS", "Python", "MongoDB"],
-      deployed: "https://snapmenu.us",
-      code: "https://github.com/namnguyen21/qr-menu",
-      demo: "https://youtu.be/6e7ne5X9fes",
+      deployed: "https://pacific-temple-25329.herokuapp.com/",
+      code: "https://github.com/namnguyen21/daily-dose",
+      demo: "https://www.youtube.com/watch?v=AYH8XHADRI4",
     },
     {
       title: "Projectify",
@@ -51,17 +54,18 @@ export default function Projects() {
       description:
         "A task and project management tool with built in chat functionality and ability to share real-time changes. Users can create individual project rooms and collaborate.",
       tools: ["React", "Redux", "Material-UI", "NodeJS", "MongoDB"],
-      deployed: "https://snapmenu.us",
-      code: "https://github.com/namnguyen21/qr-menu",
-      demo: "https://youtu.be/6e7ne5X9fes",
+      deployed: "https://projectify-test.herokuapp.com/",
+      code: "https://github.com/namnguyen21/projectify-updated",
+      demo: "https://www.youtube.com/watch?v=DsHuuDnm4Z4",
     },
   ];
 
   return (
     <Container id="projects">
       <Heading>What have I been up to?</Heading>
-      {projects.map((proj) => (
+      {projects.map((proj, i) => (
         <ProjectCard
+          key={i}
           title={proj.title}
           image={proj.image}
           description={proj.description}

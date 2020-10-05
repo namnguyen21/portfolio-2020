@@ -14,7 +14,7 @@ const Foot = styled.div`
 const Content = styled.div`
   width: 80%;
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   align-items: flex-start;
   @media (max-width: 1000px) {
     width: 100%;
@@ -23,11 +23,6 @@ const Content = styled.div`
 `;
 
 const Column = styled.div``;
-
-const Heading = styled.p`
-  font-size: 2rem;
-  color: ${(props) => props.theme.colors.tan};
-`;
 
 const Sub = styled.a`
   font-size: 2rem;
@@ -42,7 +37,7 @@ const Sub = styled.a`
     }
   }
   &:not(:last-child) {
-    margin-right: 1rem;
+    margin-right: 5rem;
   }
 `;
 
@@ -51,11 +46,6 @@ export default function Footer() {
     <Foot>
       <Content>
         <Column>
-          <Heading>Email:</Heading>
-          <Sub>namdoannguyen@gmail.com</Sub>
-        </Column>
-        <Column>
-          <Heading>Socials:</Heading>
           <Sub
             href="https://www.linkedin.com/in/namdoannguyen/"
             alt="LinkedIn"
@@ -70,11 +60,6 @@ export default function Footer() {
           >
             <i className="fab fa-github"></i>
           </Sub>
-        </Column>
-        <Column>
-          <a style={{ cursor: "pointer" }}>
-            <Heading>Resume</Heading>
-          </a>
         </Column>
       </Content>
     </Foot>

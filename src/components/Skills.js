@@ -8,12 +8,13 @@ import MySQL from "../images/mysql.svg";
 import Mongo from "../images/mongodb.svg";
 
 const Container = styled.div`
+  transform: translateY(-2px);
   width: 100%;
-  margin-bottom: 20rem;
+  margin-bottom: 10rem;
   padding: 0 10rem;
   @media (max-width: 1000px) {
     padding: 0 2rem;
-    margin-bottom: 10rem;
+    margin-bottom: 8rem;
   }
 `;
 const Heading = styled.h2`
@@ -23,6 +24,9 @@ const Heading = styled.h2`
   color: ${(props) => props.theme.colors.tan};
   margin-bottom: 4rem;
   letter-spacing: 0.2rem;
+  @media (max-width: 1000px) {
+    font-size: 4rem;
+  }
 `;
 
 const Section = styled.div`
@@ -50,6 +54,10 @@ const IconCard = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
+  @media (max-width: 800px) {
+    width: 40%;
+    margin-bottom: 2rem;
+  }
 `;
 
 const Icon = styled.img`

@@ -2,7 +2,8 @@ import React, { useState, useRef, useEffect } from "react";
 import styled from "styled-components";
 
 const Card = styled.div`
-  transform: ${(props) => (props.visible ? "none" : "translateX(-400px)")};
+  transform: ${(props) =>
+    props.visible ? "translateX(0)" : "translateX(-100px)"};
   opacity: ${(props) => (props.visible ? "1.0" : "0.0")};
   transition: transform 1s, opacity 1s;
   width: 80rem;
@@ -20,6 +21,7 @@ const Card = styled.div`
 const CardImage = styled.img`
   width: 8rem;
   @media (max-width: 1000px) {
+    width: 0;
     display: none;
   }
 `;
@@ -75,15 +77,22 @@ const CardButton = styled.a`
   font-weight: 100;
   font-size: 2rem;
   border-radius: 1rem;
-
+  display: flex;
+  align-items: center;
+  transition: all 0.5s;
   > i {
     color: inherit;
     font-size: 2rem;
+    margin-right: 0.5rem;
   }
 
   &:hover {
     background-color: ${(props) => props.theme.colors.tan};
     color: ${(props) => props.theme.colors.white};
+  }
+
+  @media (max-width: 1000px) {
+    font-size: 1.5rem;
   }
 `;
 
@@ -96,19 +105,28 @@ const CardDescription = styled.p`
 const TagContainer = styled.div`
   display: flex;
   align-items: center;
+  flex-wrap: wrap;
   > * {
     &:not(:last-child) {
       margin-right: 2rem;
     }
   }
+
+  @media (max-width: 1000px) {
+    justify-content: flex-start;
+  }
 `;
 
 const Tag = styled.div`
-  border: solid 1px ${(props) => props.theme.colors.white};
+  /* border: solid 1px ${(props) => props.theme.colors.white}; */
+  background-color: rgba(0, 0, 0, 0.3);
   padding: 0.5rem 1rem;
   border-radius: 1rem;
   color: ${(props) => props.theme.colors.white};
   font-size: 1.4rem;
+  @media (max-width: 1000px) {
+    margin-bottom: 1rem;
+  }
 `;
 
 export default function ProjectCard({
@@ -129,8 +147,7 @@ export default function ProjectCard({
     });
     observer.observe(element.current);
     return () => observer.unobserve(element.current);
-  });
-  console.log(visible);
+  }, [element]);
   return (
     <Card ref={element} visible={visible}>
       <CardImage src={image} alt={title} />
@@ -138,21 +155,21 @@ export default function ProjectCard({
         <CardHeading>
           <CardTitle>{title}</CardTitle>
           <TagContainer>
-            {tools.map((tool) => (
-              <Tag>{tool}</Tag>
+            {tools.map((tool, i) => (
+              <Tag key={i}>{tool}</Tag>
             ))}
           </TagContainer>
         </CardHeading>
 
         <CardDescription>{description}</CardDescription>
         <CardButtonGroup>
-          <CardButton href={code} alt={title}>
+          <CardButton href={code} target="_blank" alt={title}>
             <i className="fas fa-code"></i> Code
           </CardButton>
-          <CardButton href={deployed} alt={title}>
+          <CardButton href={deployed} target="_blank" alt={title}>
             <i className="far fa-eye"></i> Deployed
           </CardButton>
-          <CardButton href={code} alt={title}>
+          <CardButton href={demo} target="_blank" alt={title}>
             <i className="fab fa-youtube"></i> Demo
           </CardButton>
         </CardButtonGroup>

@@ -12,6 +12,7 @@ const NavBar = styled.nav`
     display: flex;
     justify-content: space-between;
     align-items: center;
+    padding: 1rem 2rem;
   }
   position: relative;
   z-index: 9999999999999;
@@ -22,6 +23,7 @@ const Logo = styled.h1`
   font-size: 4rem;
   color: ${(props) => props.theme.colors.tan};
   z-index: 9999999999;
+  padding: 0.5rem;
 `;
 
 const ItemContainer = styled.div`
@@ -31,6 +33,7 @@ const ItemContainer = styled.div`
   @media (max-width: 1000px) {
     display: none;
   }
+  z-index: 999999999999;
 `;
 
 const NavItem = styled(AnchorLink)`
@@ -60,6 +63,7 @@ const Socials = styled.div`
   @media (max-width: 1000px) {
     display: none;
   }
+  z-index: 999999999999;
 `;
 
 const Icon = styled.a`
@@ -93,7 +97,7 @@ const Hamburger = styled.div`
   border: none;
   cursor: pointer;
   padding: 0;
-  z-index: 10;
+  z-index: 9999999999;
   div {
     width: 3rem;
     height: 0.25rem;
@@ -179,10 +183,10 @@ export default function Nav() {
         <NavItem href="#projects">Projects</NavItem>
       </ItemContainer>
       <Socials>
-        <Icon>
+        <Icon href="https://github.com/namnguyen21" target="_blank">
           <I className="fab fa-github"></I>
         </Icon>
-        <Icon>
+        <Icon href="https://www.linkedin.com/in/namdoannguyen/" target="_blank">
           <I className="fab fa-linkedin-in"></I>
         </Icon>
       </Socials>
@@ -201,12 +205,14 @@ export default function Nav() {
         <MenuSocial
           open={open}
           href="https://www.linkedin.com/in/namdoannguyen/"
+          target="_blank"
           alt="LinkedIn"
         >
           LinkedIn
         </MenuSocial>
         <MenuSocial
           open={open}
+          target="_blank"
           href="https://github.com/namnguyen21"
           alt="Github"
         >
