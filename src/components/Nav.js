@@ -132,11 +132,11 @@ const Menu = styled.div`
   background: #fff;
   display: block;
   position: absolute;
-  top: 100%;
+  top: ${(props) => (props.open ? "88px" : "0")};
   left: 0;
   bottom: ${(props) => (props.open ? null : "0")};
-  transform: ${(props) =>
-    !props.open ? "translateY(-200%)" : "translateY(0)"};
+  /* transform: ${(props) =>
+    !props.open ? "translateY(-200%)" : "translateY(0)"}; */
   opacity: ${(props) => (props.open ? "1" : "0")};
   transition: all 0.5s;
   display: flex;

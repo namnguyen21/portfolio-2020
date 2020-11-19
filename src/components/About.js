@@ -1,11 +1,12 @@
 import React from "react";
 import styled from "styled-components";
 import Avatar from "../images/avatar.svg";
+import Layout from "./Layout";
 
 const Container = styled.div`
   width: 100%;
   margin: auto;
-  padding: 5rem 20rem 117px;
+  padding-bottom: 117px;
   margin-bottom: 5rem;
   background-color: ${(props) => props.theme.colors.white};
   position: relative;
@@ -117,19 +118,20 @@ export default function About() {
           ></Path>
         </SVG>
       </Wave>
-      <Heading>Nam Nguyen</Heading>
-      <Subheading>Full Stack Software Developer</Subheading>
-      <Divider />
-      <DescriptionContainer>
-        <Image src={Avatar} alt="Avatar" />
-        <Description>
-          Welcome! My name is Nam and I'm a software developer. I graduated from
-          UC Irvine with a degree in political science, however, my true passion
-          lies with programming. Check out my work and connect with me on
-          LinkedIn - lets grab a virtual coffee!
-        </Description>
-      </DescriptionContainer>
-
+      <Layout>
+        <Heading>Nam Nguyen</Heading>
+        <Subheading>Full Stack Software Developer</Subheading>
+        <Divider />
+        <DescriptionContainer>
+          <Image src={Avatar} alt="Avatar" />
+          <Description>
+            Welcome! My name is Nam and I'm a software developer. I graduated
+            from UC Irvine with a degree in political science, however, my true
+            passion lies with programming. Check out my work and connect with me
+            on LinkedIn - lets grab a virtual coffee!
+          </Description>
+        </DescriptionContainer>
+      </Layout>
       {/* <ButtonContainer>
         <Button>See My Work &#9660;</Button>
       </ButtonContainer> */}

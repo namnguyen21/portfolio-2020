@@ -4,6 +4,7 @@ import Tasks from "../images/list.svg";
 import News from "../images/news.svg";
 import QR from "../images/qr-code.svg";
 import ProjectCard from "./ProjectCard";
+import Layout from "./Layout";
 
 const Container = styled.div`
   padding: 0 10rem;
@@ -62,19 +63,21 @@ export default function Projects() {
 
   return (
     <Container id="projects">
-      <Heading>What have I been up to?</Heading>
-      {projects.map((proj, i) => (
-        <ProjectCard
-          key={i}
-          title={proj.title}
-          image={proj.image}
-          description={proj.description}
-          tools={proj.tools}
-          deployed={proj.deployed}
-          code={proj.code}
-          demo={proj.demo}
-        />
-      ))}
+      <Layout>
+        <Heading>What have I been up to?</Heading>
+        {projects.map((proj, i) => (
+          <ProjectCard
+            key={i}
+            title={proj.title}
+            image={proj.image}
+            description={proj.description}
+            tools={proj.tools}
+            deployed={proj.deployed}
+            code={proj.code}
+            demo={proj.demo}
+          />
+        ))}
+      </Layout>
     </Container>
   );
 }

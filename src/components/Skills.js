@@ -6,6 +6,7 @@ import ReactIcon from "../images/react.svg";
 import Redux from "../images/redux.svg";
 import MySQL from "../images/mysql.svg";
 import Mongo from "../images/mongodb.svg";
+import Layout from "./Layout";
 
 const Container = styled.div`
   transform: translateY(-2px);
@@ -82,19 +83,21 @@ export default function Skills() {
 
   return (
     <Container>
-      <Heading id="skills">What can I do?</Heading>
-      <Section>
-        <IconGroup>
-          {skills.map((item, i) => {
-            return (
-              <IconCard key={i}>
-                <Icon src={item.image} alt={item.name} />
-                <IconDescription>{item.name}</IconDescription>
-              </IconCard>
-            );
-          })}
-        </IconGroup>
-      </Section>
+      <Layout>
+        <Heading id="skills">What can I do?</Heading>
+        <Section>
+          <IconGroup>
+            {skills.map((item, i) => {
+              return (
+                <IconCard key={i}>
+                  <Icon src={item.image} alt={item.name} />
+                  <IconDescription>{item.name}</IconDescription>
+                </IconCard>
+              );
+            })}
+          </IconGroup>
+        </Section>
+      </Layout>
     </Container>
   );
 }
